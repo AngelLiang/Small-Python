@@ -6,12 +6,12 @@
 extern PyTypeObject PyDict_Type;
 
 /*
-* 函数：Pydict_Create
-* 参数：void
-* 返回：PyObject*
-* 说明：创建dict对象
-*/
-PyObject* Pydict_Create(void)
+ * 函数：PyDict_Create
+ * 参数：void
+ * 返回：PyObject*
+ * 说明：创建dict对象
+ */
+PyObject* PyDict_Create(void)
 {
     PyDictObject* object = new PyDictObject;
     object->refCount = 1;

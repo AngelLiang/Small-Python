@@ -19,11 +19,11 @@ PyObject* PyInt_Create(int value)
 }
 
 /*
-* 函数：int_print
-* 参数：PyObject* object -
-* 返回：void
-* 说明：int打印
-*/
+ * 函数：int_print
+ * 参数：PyObject* object -
+ * 返回：void
+ * 说明：int打印
+ */
 static void int_print(PyObject* object)
 {
     PyIntObject* intObject = (PyIntObject*)object;
@@ -53,11 +53,11 @@ static PyObject* int_add(PyObject* left, PyObject* right)
 }
 
 /*
-* 函数：int_hash
-* 参数：PyObject* object -
-* 返回：long
-* 说明：获取int值
-*/
+ * 函数：int_hash
+ * 参数：PyObject* object -
+ * 返回：long
+ * 说明：获取int的hash值，int的hash就是value值
+ */
 static long int_hash(PyObject* object)
 {
 	return (long)((PyIntObject*)object)->value;

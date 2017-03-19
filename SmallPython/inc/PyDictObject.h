@@ -10,7 +10,7 @@ typedef struct tagPyDictObject{
     map<long, PyObject*> dict;
 }PyDictObject;
 
-extern PyObject* Pydict_Create(void);
+extern PyObject* PyDict_Create(void);
 extern PyObject* PyDict_GetItem(PyObject* target, PyObject* key);
 extern int PyDict_SetItem(PyObject* target, PyObject* key, PyObject* value);
 

@@ -5,11 +5,11 @@
 extern PyTypeObject PyString_Type;
 
 /*
-* 函数：PyStr_Create
-* 参数：const char* value -
-* 返回：PyObject*
-* 说明：创建Str对象
-*/
+ * 函数：PyStr_Create
+ * 参数：const char* value -
+ * 返回：PyObject*
+ * 说明：创建Str对象
+ */
 PyObject* PyStr_Create(const char* value)
 {
     PyStringObject* object = new PyStringObject;
@@ -25,11 +25,11 @@ PyObject* PyStr_Create(const char* value)
 }
 
 /*
-* 函数：string_print
-* 参数：PyObject* object -
-* 返回：void
-* 说明：string打印
-*/
+ * 函数：string_print
+ * 参数：PyObject* object -
+ * 返回：void
+ * 说明：string打印
+ */
 static void string_print(PyObject* object)
 {
     PyStringObject* strObject = (PyStringObject*)object;
@@ -37,11 +37,11 @@ static void string_print(PyObject* object)
 }
 
 /*
-* 函数：string_hash
-* 参数：PyObject* object -
-* 返回：long
-* 说明：获取string的hash
-*/
+ * 函数：string_hash
+ * 参数：PyObject* object -
+ * 返回：long
+ * 说明：获取string的hash
+ */
 static long string_hash(PyObject* object)
 {
     PyStringObject* strObject = (PyStringObject*)object;
@@ -51,7 +51,7 @@ static long string_hash(PyObject* object)
 
     if (strObject->hashValue != -1)
         return strObject->hashValue;
-    //计算hash值
+    // 计算hash值
     len = strObject->length;
     p = (unsigned char *)strObject->value;
     x = *p << 7;

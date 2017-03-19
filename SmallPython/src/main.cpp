@@ -1,6 +1,5 @@
 #include "user_inc.h"
 
-//PyObject *m_LocalEnvironment = new PyDictObject;
 PyDictObject *m_LocalEnvironment = new PyDictObject;
 
 extern void ExcuteCommand(string& command);
@@ -28,6 +27,12 @@ void ExcuteCommand(string& command)
     }
 }
 
+/*
+ * 函数：IsSourceAllDigit
+ * 参数：string source -
+ * 返回：bool
+ * 说明：判断字符串是否都是数字
+ */
 bool IsSourceAllDigit(string source)
 {
     bool result = true;
@@ -46,7 +51,10 @@ bool IsSourceAllDigit(string source)
  * 参数：string &target - 
  *       string &source - 
  * 返回：void
- * 说明：执行相加操作
+ * 说明：执行操作。
+ *       如果都是数字，则创建int对象并设置到全局变量；
+ *       如果如果找到"符号，创建str对象并设置到全局变量；
+ *       如果找到+符号，执行相加操作。
  */
 void ExcuteAdd(string &target, string &source)
 {
@@ -75,6 +83,12 @@ void ExcuteAdd(string &target, string &source)
     }
 }
 
+/*
+ * 函数：GetObjectBySymbol
+ * 参数：string& symbol
+ * 返回：PyObject*
+ * 说明：从全局环境变量获取值
+ */
 PyObject* GetObjectBySymbol(string& symbol)
 {
     PyObject* key = PyStr_Create(symbol.c_str());
@@ -87,11 +101,11 @@ PyObject* GetObjectBySymbol(string& symbol)
 }
 
 /*
-* 函数：ExcutePrint
-* 参数：string symbol -
-* 返回：void
-* 说明：执行打印操作
-*/
+ * 函数：ExcutePrint
+ * 参数：string symbol -
+ * 返回：void
+ * 说明：执行打印操作
+ */
 void ExcutePrint(string symbol)
 {
     PyObject* object = GetObjectBySymbol(symbol);
@@ -110,6 +124,7 @@ string m_Command;
  * 函数：Excute
  * 参数：void
  * 返回：void
+ * 说明：执行函数
  */
 void Excute(void)
 {
@@ -130,6 +145,13 @@ void Excute(void)
 	}
 }
 
+/*
+ * 函数：main
+ * 参数：int argc -
+ *       char* argv[] - 
+ * 返回：int
+ * 说明：主函数
+ */
 int main(int argc, char* argv[])
 {
 	Excute();
